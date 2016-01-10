@@ -15,3 +15,11 @@ int TopViewImageToPointCloudConverter::compute(pcl::PointCloud<pcl::PointXYZRGBA
 
 	return ret;
 }
+
+int TopViewImageToPointCloudConverter::generateLargeRandomInteger_(int max_num) {
+	int seed = std::rand();
+	while (seed < max_num) {
+		seed = seed * (RAND_MAX + 1) + std::rand();
+	}
+	return seed % max_num;
+}
